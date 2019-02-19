@@ -1,0 +1,1378 @@
+\documentclass[12pt]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb,tabu }
+
+\setbeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\ }
+
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+\newcommand{\bfA}{\mathbf{A}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfB}{\mathbf{B}}
+\newcommand{\bfC}{\mathbf{C}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bfE}{\mathbf{E}}
+\newcommand{\bfF}{\mathbf{F}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfG}{\mathbf{G}}
+\newcommand{\bfH}{\mathbf{H}}
+\newcommand{\bfI}{\mathbf{I}}
+\newcommand{\bfJ}{\mathbf{J}}
+\newcommand{\bfM}{\mathbf{M}}
+\newcommand{\bfP}{\mathbf{P}}
+\newcommand{\bfQ}{\mathbf{Q}}
+\newcommand{\bfS}{\mathbf{S}}
+\newcommand{\bfU}{\mathbf{U}}
+\newcommand{\bfV}{\mathbf{V}}
+\newcommand{\bfW}{\mathbf{W}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfX}{\mathbf{X}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+\newcommand{\bfZ}{\mathbf{Z}}
+
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bff}{\mathbf{f}}
+
+
+\newcommand{\bfone}{\boldsymbol{1}}
+\newcommand{\bfzero}{\boldsymbol{0}}
+
+\newcommand{\bfdelta}{\boldsymbol{\delta}}
+\newcommand{\bfphi}{\boldsymbol{\varphi}}
+\newcommand{\bfPi}{\boldsymbol{\Pi}}
+\newcommand{\bfpsi}{\boldsymbol{\psi}}
+\newcommand{\bfPhi}{\boldsymbol{\Phi}}
+\newcommand{\bfPsi}{\boldsymbol{\Psi}}
+\newcommand{\bfSigma}{\boldsymbol{\Sigma}}
+
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calV}{\mathcal{V}}
+
+\newcommand{\rmc}{\mathrm{c}}
+\newcommand{\rmC}{\mathrm{C}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\rmT}{\mathrm{T}}
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\ETF}{{\operatorname{ETF}}}
+\newcommand{\QSD}{{\operatorname{QSD}}}
+\newcommand{\SRG}{{\operatorname{SRG}}}
+\newcommand{\BIBD}{{\operatorname{BIBD}}}
+\newcommand{\RBIBD}{{\operatorname{RBIBD}}}
+\newcommand{\Fro}{\operatorname{Fro}}
+
+\newcommand{\coh}{\operatorname{coh}}
+\newcommand{\spark}{\operatorname{spark}}
+
+\newcommand{\abs}[1]{|{#1}|}
+\newcommand{\bigabs}[1]{\bigl|{#1}\bigr|}
+\newcommand{\Bigabs}[1]{\Bigl|{#1}\Bigr|}
+\newcommand{\biggabs}[1]{\biggl|{#1}\biggr|}
+\newcommand{\Biggabs}[1]{\Biggl|{#1}\Biggr|}
+
+\newcommand{\paren}[1]{({#1})}
+\newcommand{\bigparen}[1]{\bigl({#1}\bigr)}
+\newcommand{\Bigparen}[1]{\Bigl({#1}\Bigr)}
+\newcommand{\biggparen}[1]{\biggl({#1}\biggr)}
+\newcommand{\Biggparen}[1]{\Biggl({#1}\Biggr)}
+
+\newcommand{\bracket}[1]{[{#1}]}
+\newcommand{\bigbracket}[1]{\bigl[{#1}\bigr]}
+\newcommand{\Bigbracket}[1]{\Bigl[{#1}\Bigr]}
+\newcommand{\biggbracket}[1]{\biggl[{#1}\biggr]}
+\newcommand{\Biggbracket}[1]{\Biggl[{#1}\Biggr]}
+
+\newcommand{\set}[1]{\{{#1}\}}
+\newcommand{\bigset}[1]{\bigl\{{#1}\bigr\}}
+\newcommand{\Bigset}[1]{\Bigl\{{#1}\Bigr\}}
+\newcommand{\biggset}[1]{\biggl\{{#1}\biggr\}}
+\newcommand{\Biggset}[1]{\Biggl\{{#1}\Biggr\}}
+
+\newcommand{\norm}[1]{\|{#1}\|}
+\newcommand{\bignorm}[1]{\bigl\|{#1}\bigr\|}
+\newcommand{\Bignorm}[1]{\Bigl\|{#1}\Bigr\|}
+\newcommand{\biggnorm}[1]{\biggl\|{#1}\biggr\|}
+\newcommand{\Biggnorm}[1]{\Biggl\|{#1}\Biggr\|}
+
+\newcommand{\ip}[2]{\langle{#1},{#2}\rangle}
+\newcommand{\bigip}[2]{\bigl\langle{#1},{#2}\bigr\rangle}
+\newcommand{\Bigip}[2]{\Bigl\langle{#1},{#2}\Bigr\rangle}
+\newcommand{\biggip}[2]{\biggl\langle{#1},{#2}\biggr\rangle}
+\newcommand{\Biggip}[2]{\Biggl\langle{#1},{#2}\Biggr\rangle}
+
+\newcommand{\alphi}{\renewcommand{\labelenumi}{(\alph{enumi})}}
+\newcommand{\alphii}{\renewcommand{\labelenumii}{(\alph{enumii})}}
+\newcommand{\alphiii}{\renewcommand{\labelenumiii}{(\alph{enumiii})}}
+\newcommand{\romani}{\renewcommand{\labelenumi}{(\roman{enumi})}}
+\newcommand{\romanii}{\renewcommand{\labelenumii}{(\roman{enumii})}}
+\newcommand{\romaniii}{\renewcommand{\labelenumiii}{(\roman{enumiii})}}
+\newcommand{\arabici}{\renewcommand{\labelenumi}{(\arabic{enumi})}}
+\newcommand{\arabicii}{\renewcommand{\labelenumii}{(\arabic{enumii})}}
+\newcommand{\arabiciii}{\renewcommand{\labelenumiii}{(\arabic{enumiii})}}
+
+\setlength{\labelwidth}{0pt}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor*{item}{fg=black}
+
+\title{Harmonic Equiangular Tight Frames\\Comprised of Regular Simplices}
+\author{%
+2d Lt Courtney Schmitt}
+\institute{
+Dr. Matthew Fickus - Advisor\\
+Dr. Dursun Bulutoglu - Committee Member\\
+Dr. Mark Oxley - Committee Member}
+
+\date{February 21, 2019}
+\titlegraphic{\tiny{The views expressed in this talk are those of the speaker and do not reflect the official policy\\ or position of the United States Air Force, Department of Defense, or the U.S. Government.}}
+
+%Abstract: An equiangular tight frame (ETF) is a type of optimal packing of lines in Euclidean space.  A regular simplex is a special type of ETF in which the number of vectors is one more than the dimension of the space they span.  In this talk, we consider ETFs that contain a regular simplex, that is, have the property that a subset of its vectors forms a regular simplex.  As we explain, such ETFs are characterized as those that achieve equality in a certain well-known bound from the theory of compressed sensing.  We then consider the so-called binder of such an ETF, namely the set of all regular simplices that it contains.  In certain circumstances, we show this binder can be used to produce a particularly elegant Naimark complement of the corresponding ETF.  We also apply these ideas to known constructions of ETFs, including harmonic ETFs.
+
+
+\setlength{\arraycolsep}{2pt}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain,noframenumbering]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Part I:\\
+ETFs, ECTFFs, EITFFs, and an Open Conjecture}
+\author{}
+\institute{}
+
+\date{}
+\titlegraphic{}
+\maketitle
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Notation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Given $N$ vectors $\set{\bfphi_n}_{n\in\calN}$ in a $D$-dimensional Hilbert space $\bbH$:
+
+\begin{itemize}
+
+\vfill
+\item
+The \textbf{synthesis operator} is $\bfPhi:\bbF^\calN\rightarrow\bbH$,
+\begin{equation*}
+\bfPhi\bfx=\sum_{n\in\calN}\bfx(n)\bfphi_n.
+\end{equation*}
+
+\vfill
+\item
+The \textbf{frame operator} is $\bfPhi\bfPhi^*:\bbH\rightarrow\bbH$,
+\begin{equation*}
+\bfPhi\bfPhi^*\bfy
+=\sum_{n\in\calN}\ip{\bfphi_n}{\bfy}\bfphi_n.
+\end{equation*}
+
+\vfill
+\item
+The \textbf{Gram matrix} is the $\calN\times\calN$ matrix,
+\begin{equation*}
+(\bfPhi^*\bfPhi)(n,n')
+=\ip{\bfphi_n}{\bfphi_{n'}}.
+\end{equation*}
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: Tetrahedron, $D=3$, $N=4$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align*}
+\bfPhi
+&=\tfrac{1}{\sqrt{3}}\left[\begin{array}{rrrr}
+ 1&-1& 1&-1\\
+ 1& 1&-1&-1\\
+ 1&-1&-1& 1
+\end{array}\right] \qquad 
+\bfPhi^*=\left[\begin{array}{rrr}
+ 1& 1& 1\\
+-1& 1&-1\\
+ 1&-1&-1\\
+-1&-1& 1
+\end{array}\right]\\\\
+\bfPhi\bfPhi^*
+&=\tfrac{1}{3}\left[\begin{array}{rrrr}
+ 1&-1& 1&-1\\
+ 1& 1&-1&-1\\
+ 1&-1&-1& 1
+\end{array}\right]
+\left[\begin{array}{rrr}
+ 1& 1& 1\\
+-1& 1&-1\\
+ 1&-1&-1\\
+-1&-1& 1
+\end{array}\right]
+=\left[\begin{array}{rrrr}
+\tfrac{4}{3}&0&0\\
+0&\tfrac{4}{3}&0\\
+0&0&\tfrac{4}{3}
+\end{array}\right]\\\\
+\bfPhi^*\bfPhi
+&=\tfrac{1}{3}\left[\begin{array}{rrr}
+ 1& 1& 1\\
+-1& 1&-1\\
+ 1&-1&-1\\
+-1&-1& 1
+\end{array}\right]
+\left[\begin{array}{rrrr}
+ 1&-1& 1&-1\\
+ 1& 1&-1&-1\\
+ 1&-1&-1& 1
+\end{array}\right]
+=\left[\begin{array}{rrrr}
+ 1&-\tfrac{1}{3}&-\tfrac{1}{3}&-\tfrac{1}{3}\\
+-\tfrac{1}{3}& 1&-\tfrac{1}{3}&-\tfrac{1}{3}\\
+-\tfrac{1}{3}&-\tfrac{1}{3}& 1&-\tfrac{1}{3}\\
+-\tfrac{1}{3}&-\tfrac{1}{3}&-\tfrac{1}{3}& 1
+\end{array}\right]
+\end{align*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Equiangular Tight Frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Theorem:} [Welch 74]
+If $\{\bfphi_n\}_{n\in\calN}$ is a sequence of $N$ unit vectors in a $D$-dimensional Hilbert space $\bbH$ where $N\geq D$, then
+\begin{equation*}
+    \left[\tfrac{N-D}{D(N-1)}\right]^{\tfrac{1}{2}}\leq\max_{n\not=n'}\abs{\ip{\bfphi_n}{\bfphi_{n'}}}=\cos(\min_{n\not=n'}\theta_{n,n'}).
+\end{equation*}
+
+\vfill
+
+\textbf{Definition:} $\{\bfphi_n\}_{n\in\calN}$ is an \textbf{equiangluar tight frame (ETF)} for $\bbH$ if both
+\begin{enumerate}
+    \item there exists $A>0$ such that $\bfPhi\bfPhi^*=A\bfI$ (tightness) and
+    \item $\abs{\ip{\bfphi_n}{\bfphi_{n'}}}$ is constant over all $n\not=n'$ (equiangular).
+\end{enumerate}
+If $N=D+1$ an ETF for $\bbH$ is called a \textbf{regular $D$-simplex}.
+
+\vfill
+
+Equality is achieved in the Welch bound if and only if $\{\bfphi_n\}_{n\in\calN}$ is an ETF for $\bbH$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: $D=6$, $N=16$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+\begin{equation*}
+\bfPhi=\frac1{\sqrt{6}}\left[\begin{array}{rrrrrrrrrrrrrrrr}
+1&-1& 1&-1& 1&-1& 1&-1& 1&-1& 1&-1& 1&-1& 1&-1\\
+1&-1& 1&-1& 1&-1& 1&-1&-1& 1&-1& 1&-1& 1&-1& 1\\
+1& 1&-1&-1& 1& 1&-1&-1& 1& 1&-1&-1& 1& 1&-1&-1\\
+1& 1&-1&-1&-1&-1& 1& 1& 1& 1&-1&-1&-1&-1& 1& 1\\
+1&-1&-1& 1& 1&-1&-1& 1& 1&-1&-1& 1& 1&-1&-1& 1\\
+1&-1&-1& 1&-1& 1& 1&-1&-1& 1& 1&-1& 1&-1&-1& 1
+\end{array}\right]
+\end{equation*}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: $D=6$, $N=16$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation*}
+\bfPhi\bfPhi^*=\left[\begin{array}{cccccc}
+    \tfrac{16}{6}  &  0  &  0  &  0  &  0  &  0\\
+     0  & \tfrac{16}{6}  &  0  &  0  &  0  &  0\\
+     0  &  0  & \tfrac{16}{6}  &  0  &  0  &  0\\
+     0  &  0  &  0  & \tfrac{16}{6}  &  0  &  0\\
+     0  &  0  &  0  &  0  & \tfrac{16}{6}  &  0\\
+     0  &  0  &  0  &  0  &  0  & \tfrac{16}{6}
+\end{array}\right]
+\end{equation*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: $D=6$, $N=16$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+\begin{equation*}
+\bfPhi^*\bfPhi=\tfrac{1}{6}\left[\begin{array}{rrrrrrrrrrrrrrrr}
+ 6  & -2  & -2  & -2  &  2  & -2  &  2  & -2  &  2  &  2  & -2  & -2  &  2  & -2  & -2  &  2\\
+-2  &  6  & -2  & -2  & -2  &  2  & -2  &  2  &  2  &  2  & -2  & -2  & -2  &  2  &  2  & -2\\
+-2  & -2  &  6  & -2  &  2  & -2  &  2  & -2  & -2  & -2  &  2  &  2  & -2  &  2  &  2  & -2\\
+-2  & -2  & -2  &  6  & -2  &  2  & -2  &  2  & -2  & -2  &  2  &  2  &  2  & -2  & -2  &  2\\
+ 2  & -2  &  2  & -2  &  6  & -2  & -2  & -2  &  2  & -2  & -2  &  2  &  2  &  2  & -2  & -2\\
+-2  &  2  & -2  &  2  & -2  &  6  & -2  & -2  & -2  &  2  &  2  & -2  &  2  &  2  & -2  & -2\\
+ 2  & -2  &  2  & -2  & -2  & -2  &  6  & -2  & -2  &  2  &  2  & -2  & -2  & -2  &  2  &  2\\
+-2  &  2  & -2  &  2  & -2  & -2  & -2  &  6  &  2  & -2  & -2  &  2  & -2  & -2  &  2  &  2\\
+ 2  &  2  & -2  & -2  &  2  & -2  & -2  &  2  &  6  & -2  & -2  & -2  &  2  & -2  &  2  & -2\\
+ 2  &  2  & -2  & -2  & -2  &  2  &  2  & -2  & -2  &  6  & -2  & -2  & -2  &  2  & -2  &  2\\
+-2  & -2  &  2  &  2  & -2  &  2  &  2  & -2  & -2  & -2  &  6  & -2  &  2  & -2  &  2  & -2\\
+-2  & -2  &  2  &  2  &  2  & -2  & -2  &  2  & -2  & -2  & -2  &  6  & -2  &  2  & -2  &  2\\
+ 2  & -2  & -2  &  2  &  2  &  2  & -2  & -2  &  2  & -2  &  2  & -2  &  6  & -2  & -2  & -2\\
+-2  &  2  &  2  & -2  &  2  &  2  & -2  & -2  & -2  &  2  & -2  &  2  & -2  &  6  & -2  & -2\\
+-2  &  2  &  2  & -2  & -2  & -2  &  2  &  2  &  2  & -2  &  2  & -2  & -2  & -2  &  6  & -2\\
+ 2  & -2  & -2  &  2  & -2  & -2  &  2  &  2  & -2  &  2  & -2  &  2  & -2  & -2  & -2  &  6
+\end{array}\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Tight Fusion Frames}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Recall $\{\bfphi_n\}_{n\in\calN}$ is a tight frame for $\bbH$ if $\exists A>0$ such that 
+\begin{equation*}
+    A\bfI
+    =\bfPhi\bfPhi^*
+    =\left[\begin{array}{ccc}
+    \bfphi_1 & \cdots & \bfphi_N  
+    \end{array}\right]
+    \left[\begin{array}{c}
+    \bfphi_1^*\\
+    \vdots\\
+    \bfphi_N^*
+    \end{array}\right]
+    =\sum_{n\in\calN}\bfphi_n^{}\bfphi_n^*.
+\end{equation*}
+
+\vfill
+
+\textbf{Definition:} Let $\{\calU_n\}_{n\in\calN}$ be $M$-dimensional subspaces of $\bbH$ and $\bfE_n$ the synthesis operator of an ONB for $\calU_n$. $\{\calU_n\}$ is a \textbf{tight fusion frame (TFF)} for $\bbH$ if $\exists A>0$ such that 
+\begin{equation*}
+    A\bfI=\sum_{n\in\calN}\bfE_n^{}\bfE_n^*=\sum_{n\in\calN}\bfP_n.
+\end{equation*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{ECTFFs and EITFFs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Definition:} Let $\{\calU_n\}_{n\in\calN}$ be $M$-dimensional subspaces of $\bbH$ and $\bfPhi_n$ the synthesis operator of an ONB for $\calU_n$. $\{\calU_n\}$ is an
+
+\begin{enumerate}
+    \item \textbf{equi-chordal TFF (ECTFF)} for $\bbH$ if it is a TFF and $\norm{\bfE_n^*\bfE_{n'}^{}}_{\Fro}$ is constant over all $n\not=n'$, achieving equality in
+    \begin{equation*}
+        \left[\tfrac{M(MN-D)}{D(N-1)}\right]^{1/2}\leq\max_{n\not=n'}\norm{\bfE_n^*\bfE_{n'}^{}}_{\Fro}=\max_{n\not=n'}\ip{\bfP_n}{\bfP_{n'}}.
+    \end{equation*}
+    \item \textbf{equi-isoclinic TFF (EITFF)} for $\bbH$ if it is a ECTFF and $\bfE_n^*\bfE_{n'}^{}$ has constant singular values, achieving equality in
+    \begin{equation*}
+        \left[\tfrac{MN-D}{D(N-1)}\right]^{1/2}\leq\max_{n\not=n'}\norm{\bfE_n^*\bfE_{n'}^{}}_2.
+    \end{equation*}
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ECTFF and EITFF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+
+The following are $\bfE_0$, $\bfE_1$, $\bfE_2$, and $\bfE_3$, respectively, and form an ECTFF for a 6 dimensional space consisting of 4 subspaces of dimension 3:
+\begin{equation*}
+    \left[\begin{array}{rrr}
+    1 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 1\\
+    0 & 0 & 0
+    \end{array}\right],\
+    \left[\begin{array}{rrr}
+    1 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 1
+    \end{array}\right],\
+    \left[\begin{array}{rrr}
+    0 & 0 & 0\\
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 1
+    \end{array}\right],\
+    \left[\begin{array}{rrr}
+    0 & 0 & 0\\
+    1 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+    0 & 0 & 0
+    \end{array}\right].
+\end{equation*}
+
+\vfill
+
+For any $n,n'=0,1,2,3$, $n\not=n'$ the cross-Gram matrices $\bfE_n^*\bfE_{n'}^{}$ are one of the following:
+\begin{equation*}
+    \left[\begin{array}{rrr}
+    1 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 0
+    \end{array}\right],\
+    \left[\begin{array}{rrr}
+    0 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 0
+    \end{array}\right],\
+    \left[\begin{array}{rrr}
+    0 & 0 & 0\\
+    0 & 0 & 0\\
+    0 & 0 & 1
+    \end{array}\right].
+\end{equation*}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: ECTFF and EITFF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+The following are $\bfE_0$, $\bfE_1$, $\bfE_2$, and $\bfE_3$, respectively, and form an EITFF for a 6 dimensional space consisting of 4 subspaces of dimension 2:
+\begin{equation*}
+    \tfrac1{\sqrt{3}}\left[\begin{array}{rr}
+    1 & 0\\
+    1 & 0\\
+    1 & 0\\
+    0 & 1\\
+    0 & 1\\
+    0 & 1\\
+    \end{array}\right],\
+    \tfrac1{\sqrt{3}}\left[\begin{array}{rr}
+    -1 &  0\\
+     1 &  0\\
+    -1 &  0\\
+     0 & -1\\
+     0 &  1\\
+     0 & -1\\
+    \end{array}\right],\
+    \tfrac1{\sqrt{3}}\left[\begin{array}{rr}
+     1 &  0\\
+    -1 &  0\\
+    -1 &  0\\
+     0 &  1\\
+     0 & -1\\
+     0 & -1\\
+    \end{array}\right],\
+    \tfrac1{\sqrt{3}}\left[\begin{array}{rr}
+    -1 &  0\\
+    -1 &  0\\
+     1 &  0\\
+     0 & -1\\
+     0 & -1\\
+     0 &  1\\
+    \end{array}\right].
+\end{equation*}
+
+\vfill
+
+For any $n,n'=0,1,2,3$, $n\not=n'$, 
+\begin{equation*}
+    \bfE_n^*\bfE_{n'}^{}=
+    \left[\begin{array}{rr}
+    -1 &  0 \\
+     0 & -1
+    \end{array}\right].
+\end{equation*}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{An EITFF Construction and Motivation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Theorem:}
+[Lemmens \& Seidel 73]\smallskip
+
+If $\{\bfdelta_m\}_{m\in\calM}$ is any ONB for an $M$-dimensional space $\bbH$, and for each $m\in\calM$, $\{\bfphi_{m,n}\}_{m\in\calM}$ is an ETF$(D,N)$ for $\bbK$, then $\{\calU_n\}_{n\in\calN}$, $\calU_n:=\Span\{\delta_m\otimes \varphi_{m,n}\}_{m\in\calM}$ is an EITFF for $\bbK\otimes\bbH$.
+
+\vfill
+
+\textbf{Example:} 
+\begin{equation*}
+\left[\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}\right]
+\otimes \tfrac{1}{\sqrt{3}}\left[
+\begin{array}{rrrr}
+1 & -1 & 1 & -1 \\
+1 & 1 & -1 & -1 \\
+1 & -1 & -1 & 1 
+\end{array}
+\right]
+\end{equation*}
+
+\vfill
+
+\textbf{Conjecture:} If $N$ spaces of dimension $M$ form an EITFF for a $D$-dimensional Hilbert space, then $M$ divides $D$ and $\exists$ an $N$-vector ETF for a Hilbert space of dimension $\tfrac{D}{M}$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain,noframenumbering]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Part II:\\
+Harmonic ETFs Comprised of Regular Simplices}
+\author{}
+\institute{}
+
+\date{}
+\titlegraphic{}
+\maketitle
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Harmonic ETFs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Definition:} A \textbf{character} on a finite abelian group $\calG$ is a homomorphism $\gamma:\calG\to\bbT=\{z\in\bbC:\abs{z}=1\}$. The set of all characters on $\calG$ is called the \textbf{(Pontryagin) dual}, denoted $\hat{\calG}$.
+
+\vfill
+
+The \textbf{character table} of $\calG$, $\bfF$, is the $\calG\times\hat{\calG}$-indexed table whose $(g,\gamma)$th entry is $\bfF(g,\gamma)=\gamma(g)$. $\bfF^*$ is the \textbf{DFT} on $\calG$.
+
+\vfill
+
+Restricting the rows of the character table of $\calG$ to any $\calD\subseteq\calG$ forms a tight frame for $\bbC^\calD$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: Character Table on $\bbZ_{15}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let $\omega=e^{\tfrac{2\pi i}{15}}.$ The character table of $\bbZ_{15}$ is
+\footnotesize{
+\begin{equation*}
+\left[
+\begin{array}{ccccccccccccccc}
+\omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}\\
+\omega^{ 0}  &   \omega^{ 1}  &   \omega^{ 2}  &   \omega^{ 3}  &   \omega^{ 4}  &   \omega^{ 5}  &   \omega^{ 6}  &   \omega^{ 7}  &   \omega^{ 8}  &   \omega^{ 9}  &   \omega^{10}  &   \omega^{11}  &   \omega^{12}  &   \omega^{13}  &   \omega^{14}\\
+\omega^{ 0}  &   \omega^{ 2}  &   \omega^{ 4}  &   \omega^{ 6}  &   \omega^{ 8}  &   \omega^{10}  &   \omega^{12}  &   \omega^{14}  &   \omega^{ 1}  &   \omega^{ 3}  &   \omega^{ 5}  &   \omega^{ 7}  &   \omega^{ 9}  &   \omega^{11}  &   \omega^{13}\\
+\omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+\omega^{ 0}  &   \omega^{ 4}  &   \omega^{ 8}  &   \omega^{12}  &   \omega^{ 1}  &   \omega^{ 5}  &   \omega^{ 9}  &   \omega^{13}  &   \omega^{ 2}  &   \omega^{ 6}  &   \omega^{10}  &   \omega^{14}  &   \omega^{ 3}  &   \omega^{ 7}  &   \omega^{11}\\
+\omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}\\
+\omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+\omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+\omega^{ 0}  &   \omega^{ 8}  &   \omega^{ 1}  &   \omega^{ 9}  &   \omega^{ 2}  &   \omega^{10}  &   \omega^{ 3}  &   \omega^{11}  &   \omega^{ 4}  &   \omega^{12}  &   \omega^{ 5}  &   \omega^{13}  &   \omega^{ 6}  &   \omega^{14}  &   \omega^{ 7}\\
+\omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+\omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}\\
+\omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+\omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+\omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+\omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{array}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: Character Table on $\bbZ_{15}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let $\omega=e^{\tfrac{2\pi i}{15}}.$ The character table of $\bbZ_{15}$ is
+\footnotesize{
+\begin{equation*}
+\left[
+\begin{tabu}{ccccccccccccccc}
+ \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}\\
+ \omega^{ 0}  &   \omega^{ 1}  &   \omega^{ 2}  &   \omega^{ 3}  &   \omega^{ 4}  &   \omega^{ 5}  &   \omega^{ 6}  &   \omega^{ 7}  &   \omega^{ 8}  &   \omega^{ 9}  &   \omega^{10}  &   \omega^{11}  &   \omega^{12}  &   \omega^{13}  &   \omega^{14}\\
+ \omega^{ 0}  &   \omega^{ 2}  &   \omega^{ 4}  &   \omega^{ 6}  &   \omega^{ 8}  &   \omega^{10}  &   \omega^{12}  &   \omega^{14}  &   \omega^{ 1}  &   \omega^{ 3}  &   \omega^{ 5}  &   \omega^{ 7}  &   \omega^{ 9}  &   \omega^{11}  &   \omega^{13}\\
+ \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+ \omega^{ 0}  &   \omega^{ 4}  &   \omega^{ 8}  &   \omega^{12}  &   \omega^{ 1}  &   \omega^{ 5}  &   \omega^{ 9}  &   \omega^{13}  &   \omega^{ 2}  &   \omega^{ 6}  &   \omega^{10}  &   \omega^{14}  &   \omega^{ 3}  &   \omega^{ 7}  &   \omega^{11}\\
+ \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}\\
+ \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+ \omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 8}  &   \omega^{ 1}  &   \omega^{ 9}  &   \omega^{ 2}  &   \omega^{10}  &   \omega^{ 3}  &   \omega^{11}  &   \omega^{ 4}  &   \omega^{12}  &   \omega^{ 5}  &   \omega^{13}  &   \omega^{ 6}  &   \omega^{14}  &   \omega^{ 7}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{tabu}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: Character Table on $\bbZ_{15}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let $\omega=e^{\tfrac{2\pi i}{15}}.$ The character table of $\bbZ_{15}$ is
+\footnotesize{
+\begin{equation*}
+\left[
+\begin{tabu}{ccccccccccccccc}
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 1}  &   \omega^{ 2}  &   \omega^{ 3}  &   \omega^{ 4}  &   \omega^{ 5}  &   \omega^{ 6}  &   \omega^{ 7}  &   \omega^{ 8}  &   \omega^{ 9}  &   \omega^{10}  &   \omega^{11}  &   \omega^{12}  &   \omega^{13}  &   \omega^{14}\\
+ \omega^{ 0}  &   \omega^{ 2}  &   \omega^{ 4}  &   \omega^{ 6}  &   \omega^{ 8}  &   \omega^{10}  &   \omega^{12}  &   \omega^{14}  &   \omega^{ 1}  &   \omega^{ 3}  &   \omega^{ 5}  &   \omega^{ 7}  &   \omega^{ 9}  &   \omega^{11}  &   \omega^{13}\\
+ \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+\rowfont{\color{lightgray}} 
+ \omega^{ 0}  &   \omega^{ 4}  &   \omega^{ 8}  &   \omega^{12}  &   \omega^{ 1}  &   \omega^{ 5}  &   \omega^{ 9}  &   \omega^{13}  &   \omega^{ 2}  &   \omega^{ 6}  &   \omega^{10}  &   \omega^{14}  &   \omega^{ 3}  &   \omega^{ 7}  &   \omega^{11}\\
+\rowfont{\color{lightgray}} 
+ \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}\\
+ \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+ \omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 8}  &   \omega^{ 1}  &   \omega^{ 9}  &   \omega^{ 2}  &   \omega^{10}  &   \omega^{ 3}  &   \omega^{11}  &   \omega^{ 4}  &   \omega^{12}  &   \omega^{ 5}  &   \omega^{13}  &   \omega^{ 6}  &   \omega^{14}  &   \omega^{ 7}\\
+ \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}\\
+ \omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+ \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+ \omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{tabu}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: Character Table on $\bbZ_{15}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let $\omega=e^{\tfrac{2\pi i}{15}}.$ The character table of $\bbZ_{15}$ is
+\footnotesize{
+\begin{equation*}
+\left[
+\begin{tabu}{ccccccccccccccc}
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}  &   \omega^{ 0}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 1}  &   \omega^{ 2}  &   \omega^{ 3}  &   \omega^{ 4}  &   \omega^{ 5}  &   \omega^{ 6}  &   \omega^{ 7}  &   \omega^{ 8}  &   \omega^{ 9}  &   \omega^{10}  &   \omega^{11}  &   \omega^{12}  &   \omega^{13}  &   \omega^{14}\\
+\rowfont{\color{lightgray}}  
+ \omega^{ 0}  &   \omega^{ 2}  &   \omega^{ 4}  &   \omega^{ 6}  &   \omega^{ 8}  &   \omega^{10}  &   \omega^{12}  &   \omega^{14}  &   \omega^{ 1}  &   \omega^{ 3}  &   \omega^{ 5}  &   \omega^{ 7}  &   \omega^{ 9}  &   \omega^{11}  &   \omega^{13}\\
+ \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+\rowfont{\color{lightgray}} 
+ \omega^{ 0}  &   \omega^{ 4}  &   \omega^{ 8}  &   \omega^{12}  &   \omega^{ 1}  &   \omega^{ 5}  &   \omega^{ 9}  &   \omega^{13}  &   \omega^{ 2}  &   \omega^{ 6}  &   \omega^{10}  &   \omega^{14}  &   \omega^{ 3}  &   \omega^{ 7}  &   \omega^{11}\\
+\rowfont{\color{lightgray}}  
+ \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}  &   \omega^{ 0}  &   \omega^{ 5}  &   \omega^{10}\\
+ \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+ \omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+\rowfont{\color{lightgray}}  
+ \omega^{ 0}  &   \omega^{ 8}  &   \omega^{ 1}  &   \omega^{ 9}  &   \omega^{ 2}  &   \omega^{10}  &   \omega^{ 3}  &   \omega^{11}  &   \omega^{ 4}  &   \omega^{12}  &   \omega^{ 5}  &   \omega^{13}  &   \omega^{ 6}  &   \omega^{14}  &   \omega^{ 7}\\
+ \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+\rowfont{\color{lightgray}}  
+ \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}  &   \omega^{ 0}  &   \omega^{10}  &   \omega^{ 5}\\
+ \omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+ \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+ \omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+ \omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{tabu}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Harmonic ETFs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Restricting the rows of the character table of $\calG$ to any $\calD\subseteq\calG$ forms an ETF if and only if $\calD$ is a \textbf{difference set} for $\calG$, i.e $\#\{(d,d):g=d-d'\}$ is constant over all nonzero $g\in\calG$.
+
+\vfill
+
+\textbf{Example:}
+$\{3,6,7,9,11,12,13,14\}$ is a difference set for $\bbZ_{15}$:
+
+\footnotesize{
+\begin{equation*}
+\begin{array}{r|rrrrrrrr}
+ -& 3& 6&7 & 9&11&12&13&14\\\hline
+ 3& 0&12&11& 9& 7& 6& 5& 4\\
+ 6& 3& 0&14&12&10& 9& 8& 7\\
+ 7& 4& 1& 0&13&11&10& 9& 8\\
+ 9& 6& 3& 2& 0&13&12&11&10\\
+11& 8& 5& 4& 2& 0&14&13&12\\
+12& 9& 6& 5& 3& 1& 0&14&13\\
+13&10& 7& 6& 4& 2& 1& 0&14\\
+14&11& 8& 7& 5& 3& 2& 1& 0
+\end{array}
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Harmonic ETFs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Restricting the rows of the character table of $\calG$ to any $\calD\subseteq\calG$ forms an ETF if and only if $\calD$ is a \textbf{difference set} for $\calG$, i.e $\#\{(d,d):g=d-d'\}$ is constant over all nonzero $g\in\calG$.
+
+\vfill
+
+\textbf{Example:}
+$\{3,6,7,9,11,12,13,14\}$ is a difference set for $\bbZ_{15}$:
+
+\footnotesize{
+\begin{equation*}
+\begin{array}{r|rrrrrrrr}
+ -& 3& 6&7 & 9&11&12&13&14\\\hline
+ 3& 0&12&11& 9& 7& 6& 5& 4\\
+ 6& 3& 0&14&12&10& 9& 8& 7\\
+ 7& 4& \textcolor{red}{1} & 0&13&11&10& 9& 8\\
+ 9& 6& 3& 2& 0&13&12&11&10\\
+11& 8& 5& 4& 2& 0&14&13&12\\
+12& 9& 6& 5& 3& \textcolor{red}{1}& 0&14&13\\
+13&10& 7& 6& 4& 2& \textcolor{red}{1}& 0&14\\
+14&11& 8& 7& 5& 3& 2& \textcolor{red}{1}& 0
+\end{array}
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Harmonic ETFs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Restricting the rows of the character table of $\calG$ to any $\calD\subseteq\calG$ forms an ETF if and only if $\calD$ is a \textbf{difference set} for $\calG$, i.e $\#\{(d,d):g=d-d'\}$ is constant over all nonzero $g\in\calG$.
+
+\vfill
+
+\textbf{Example:}
+$\{3,6,7,9,11,12,13,14\}$ is a difference set for $\bbZ_{15}$:
+
+\footnotesize{
+\begin{equation*}
+\begin{array}{r|rrrrrrrr}
+ -& 3& 6&7 & 9&11&12&13&14\\\hline
+ 3& 0& \textcolor{red}{12} &11& 9& 7& 6& 5& 4\\
+ 6& 3& 0&14&\textcolor{red}{12}&10& 9& 8& 7\\
+ 7& 4& 1& 0&13&11&10& 9& 8\\
+ 9& 6& 3& 2& 0&13&\textcolor{red}{12}&11&10\\
+11& 8& 5& 4& 2& 0&14&13&\textcolor{red}{12}\\
+12& 9& 6& 5& 3& 1& 0&14&13\\
+13&10& 7& 6& 4& 2& 1& 0&14\\
+14&11& 8& 7& 5& 3& 2& 1& 0
+\end{array}
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Harmonic ETFs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Restricting the rows of the character table of $\calG$ to any $\calD\subseteq\calG$ forms an ETF if and only if $\calD$ is a \textbf{difference set} for $\calG$, i.e $\#\{(d,d):g=d-d'\}$ is constant over all nonzero $g\in\calG$.
+
+\vfill
+
+\textbf{Example:}
+$\{3,6,7,9,11,12,13,14\}$ is a difference set for $\bbZ_{15}$:
+
+\footnotesize{
+\begin{equation*}
+\begin{array}{r|rrrrrrrr}
+ -& 3& 6&7 & 9&11&12&13&14\\\hline
+ 3& 0&12&11& 9& \textcolor{red}{7}& 6& 5& 4\\
+ 6& 3& 0&14&12&10& 9& 8& \textcolor{red}{7}\\
+ 7& 4& 1& 0&13&11&10& 9& 8\\
+ 9& 6& 3& 2& 0&13&12&11&10\\
+11& 8& 5& 4& 2& 0&14&13&12\\
+12& 9& 6& 5& 3& 1& 0&14&13\\
+13&10& \textcolor{red}{7}& 6& 4& 2& 1& 0&14\\
+14&11& 8& \textcolor{red}{7}& 5& 3& 2& 1& 0
+\end{array}
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ETF(8,15)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+\begin{equation*}
+\bfPhi=\tfrac{1}{\sqrt{8}}\left[
+\begin{array}{ccccccccccccccc}
+ \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+ \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+ \omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+ \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+ \omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+ \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+ \omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+ \omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{array}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ETF(8,15)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+\begin{equation*}
+\bfPhi=\tfrac{1}{\sqrt{8}}\left[
+\begin{array}{{@{} >{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+@{}}}
+ \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+ \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+ \omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+ \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+ \omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+ \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+ \omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+ \omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{array}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Harmonic ETFs Comprised of Simplices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Theorem:}
+[Fickus, Jasper, King \& Mixon 17]\smallskip
+
+If $\calD$ is a $D$-element difference set in an abelian group $\calG$ of order $G$ that is disjoint from a subgroup $\calH$ of $\calG$ of order 
+\begin{equation*}
+H:=\#(\calH)=\frac{G}{S+1}
+\quad\text{ where }S=\biggbracket{\frac{D(G-1)}{G-D}}^{\frac12}.
+\end{equation*}
+then the corresponding harmonic $\ETF(D,N)$ is a disjoint union of $H$ regular $S$-simplices indexed by the cosets of the annihilator, $\calH^\perp=\{\gamma\in\hat{\calG}:\gamma(h)=1, \forall h\in\calH\}$, of $\calH$.
+
+\vfill
+
+\textbf{Example:} For $\calD=\{3,6,7,9,11,12,13,14\}$ in $\calG=\bbZ_{15}$
+\begin{equation*}
+    G=15,\ D=8,\ S=\left[\tfrac{D(G-1)}{G-D}\right]^{\tfrac{1}{2}}=4,\ H=\tfrac{G}{S+1}=3.
+\end{equation*}
+Therefore, $\calH=\{0,5,10\}$ and $\calH^\perp=\{0,3,6,9,12\}$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: ETF(8,15)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize{
+\begin{equation*}
+\left[
+\begin{tabu}{ccccccccccccccc}
+ \textcolor{red}{\omega^{ 0}}  &   \omega^{ 0}  &   \omega^{ 0}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 0}  &   \omega^{ 0}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 0}  &   \omega^{ 0}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 0}  &   \omega^{ 0}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 0}  &   \omega^{ 0}\\
+\rowfont{\color{lightgray}} 
+ \omega^{ 0}  &   \omega^{ 1}  &   \omega^{ 2}  &   \omega^{ 3}  &   \omega^{ 4}  &   \omega^{ 5}  &   \omega^{ 6}  &   \omega^{ 7}  &   \omega^{ 8}  &   \omega^{ 9}  &   \omega^{10}  &   \omega^{11}  &   \omega^{12}  &   \omega^{13}  &   \omega^{14}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 2}  &   \omega^{ 4}  &   \omega^{ 6}  &   \omega^{ 8}  &   \omega^{10}  &   \omega^{12}  &   \omega^{14}  &   \omega^{ 1}  &   \omega^{ 3}  &   \omega^{ 5}  &   \omega^{ 7}  &   \omega^{ 9}  &   \omega^{11}  &   \omega^{13}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}  &   \omega^{ 0}  &   \omega^{ 3}  &   \omega^{ 6}  &   \omega^{ 9}  &   \omega^{12}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 4}  &   \omega^{ 8}  &   \omega^{12}  &   \omega^{ 1}  &   \omega^{ 5}  &   \omega^{ 9}  &   \omega^{13}  &   \omega^{ 2}  &   \omega^{ 6}  &   \omega^{10}  &   \omega^{14}  &   \omega^{ 3}  &   \omega^{ 7}  &   \omega^{11}\\
+ \textcolor{red}{\omega^{ 0}}  &   \omega^{ 5}  &   \omega^{10}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 5}  &   \omega^{10}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 5}  &   \omega^{10}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 5}  &   \omega^{10}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{ 5}  &   \omega^{10}\\
+\rowfont{\color{lightgray}} 
+ \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}  &   \omega^{ 0}  &   \omega^{ 6}  &   \omega^{12}  &   \omega^{ 3}  &   \omega^{ 9}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 7}  &   \omega^{14}  &   \omega^{ 6}  &   \omega^{13}  &   \omega^{ 5}  &   \omega^{12}  &   \omega^{ 4}  &   \omega^{11}  &   \omega^{ 3}  &   \omega^{10}  &   \omega^{ 2}  &   \omega^{ 9}  &   \omega^{ 1}  &   \omega^{ 8}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{ 8}  &   \omega^{ 1}  &   \omega^{ 9}  &   \omega^{ 2}  &   \omega^{10}  &   \omega^{ 3}  &   \omega^{11}  &   \omega^{ 4}  &   \omega^{12}  &   \omega^{ 5}  &   \omega^{13}  &   \omega^{ 6}  &   \omega^{14}  &   \omega^{ 7}\\
+\rowfont{\color{lightgray}} 
+ \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}  &   \omega^{ 0}  &   \omega^{ 9}  &   \omega^{ 3}  &   \omega^{12}  &   \omega^{ 6}\\
+ \textcolor{red}{\omega^{ 0}}  &   \omega^{10}  &   \omega^{ 5}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{10}  &   \omega^{ 5}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{10}  &   \omega^{ 5}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{10}  &   \omega^{ 5}  &   \textcolor{red}{\omega^{ 0}}  &   \omega^{10}  &   \omega^{ 5}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{11}  &   \omega^{ 7}  &   \omega^{ 3}  &   \omega^{14}  &   \omega^{10}  &   \omega^{ 6}  &   \omega^{ 2}  &   \omega^{13}  &   \omega^{ 9}  &   \omega^{ 5}  &   \omega^{ 1}  &   \omega^{12}  &   \omega^{ 8}  &   \omega^{ 4}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}  &   \omega^{ 0}  &   \omega^{12}  &   \omega^{ 9}  &   \omega^{ 6}  &   \omega^{ 3}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{13}  &   \omega^{11}  &   \omega^{ 9}  &   \omega^{ 7}  &   \omega^{ 5}  &   \omega^{ 3}  &   \omega^{ 1}  &   \omega^{14}  &   \omega^{12}  &   \omega^{10}  &   \omega^{ 8}  &   \omega^{ 6}  &   \omega^{ 4}  &   \omega^{ 2}\\
+\rowfont{\color{lightgray}}
+ \omega^{ 0}  &   \omega^{14}  &   \omega^{13}  &   \omega^{12}  &   \omega^{11}  &   \omega^{10}  &   \omega^{ 9}  &   \omega^{ 8}  &   \omega^{ 7}  &   \omega^{ 6}  &   \omega^{ 5}  &   \omega^{ 4}  &   \omega^{ 3}  &   \omega^{ 2}  &   \omega^{ 1}
+\end{tabu}
+\right]
+\end{equation*}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Main Result 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Theorem:} [Fickus \& S 19]\\\smallskip
+
+If $\calD$ is a $D$-element difference set for an abelian group $\calG$ of order $G$ and is disjoint from a subgroup $\calH$ of $\calG$, then $\#(\calH):=H\leq\tfrac{G}{S+1}$. Moreover, $H=\tfrac{G}{S+1}$ if and only if $\#(\calD_g):=\#[(\calD-g)\cap\calH]=\tfrac{D}{S}$, $\forall g\not\in\calH$.
+
+\vfill
+
+\textbf{Example:} For $\calD=\{6,11,7,12,13,3,9,14\}$,
+\begin{align*}
+    \calD_0=\calD_5=\calD_{10}&=\emptyset\\
+    \calD_1=\calD_2=\calD_4=\calD_8&=\{5,10\}
+\end{align*}
+
+\textbf{Definition}
+A $D$-element difference set $\calD$ in an abelian group $\calG$ of order $G$ is \textbf{fine} if it is disjoint from a subgroup $\calH$ of $\calG$ of order $H=\tfrac{G}{S+1}$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ETF(8,15)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The fine difference set $\{6,11,7,12,13,3\}$ in $\bbZ_{15}$, the ETF$(8,15)$ is comprised of $3$ regular $4$-simplices (\textcolor{red}{$\bfPhi_0$}, \textcolor{green}{$\bfPhi_1$}, \textcolor{blue}{$\bfPhi_2$}):
+
+\vfill
+
+\footnotesize{
+\begin{equation*}
+\bfPhi=\tfrac{1}{\sqrt{8}}\left[
+\begin{array}{{@{} >{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{blue}}c
+@{}}}
+\omega^{ 0}  &  \omega^{ 6}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 9}  &  \omega^{ 0}  &  \omega^{ 6}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 9}  &  \omega^{ 0}  &  \omega^{ 6}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 9}\\
+\omega^{ 0}  &  \omega^{11}  &  \omega^{ 7}  &  \omega^{ 3}  &  \omega^{14}  &  \omega^{10}  &  \omega^{ 6}  &  \omega^{ 2}  &  \omega^{13}  &  \omega^{ 9}  &  \omega^{ 5}  &  \omega^{ 1}  &  \omega^{12}  &  \omega^{ 8}  &  \omega^{ 4}\\
+\omega^{ 0}  &  \omega^{ 7}  &  \omega^{14}  &  \omega^{ 6}  &  \omega^{13}  &  \omega^{ 5}  &  \omega^{12}  &  \omega^{ 4}  &  \omega^{11}  &  \omega^{ 3}  &  \omega^{10}  &  \omega^{ 2}  &  \omega^{ 9}  &  \omega^{ 1}  &  \omega^{ 8}\\
+\omega^{ 0}  &  \omega^{12}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 3}  &  \omega^{ 0}  &  \omega^{12}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 3}  &  \omega^{ 0}  &  \omega^{12}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 3}\\
+\omega^{ 0}  &  \omega^{13}  &  \omega^{11}  &  \omega^{ 9}  &  \omega^{ 7}  &  \omega^{ 5}  &  \omega^{ 3}  &  \omega^{ 1}  &  \omega^{14}  &  \omega^{12}  &  \omega^{10}  &  \omega^{ 8}  &  \omega^{ 6}  &  \omega^{ 4}  &  \omega^{ 2}\\
+\omega^{ 0}  &  \omega^{ 3}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{12}  &  \omega^{ 0}  &  \omega^{ 3}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{12}  &  \omega^{ 0}  &  \omega^{ 3}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{12}\\
+\omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 6}  &  \omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 6}  &  \omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 6}\\
+\omega^{ 0}  &  \omega^{14}  &  \omega^{13}  &  \omega^{12}  &  \omega^{11}  &  \omega^{10}  &  \omega^{ 9}  &  \omega^{ 8}  &  \omega^{ 7}  &  \omega^{ 6}  &  \omega^{ 5}  &  \omega^{ 4}  &  \omega^{ 3}  &  \omega^{ 2}  &  \omega^{ 1}
+\end{array}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: ETF(8,15)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The fine difference set $\{3,6,7,9,11,12,13,14\}$ in $\bbZ_{15}$, the ETF$(8,15)$ is comprised of $3$ regular $4$-simplices (\textcolor{red}{$\bfPhi_0$}, \textcolor{green}{$\bfPhi_1$}, \textcolor{blue}{$\bfPhi_2$}):
+
+\vfill
+
+\footnotesize{
+\begin{equation*}
+\bfPhi=\tfrac{1}{\sqrt{8}}\left[
+\begin{array}{{@{} >{\color{red}}c
+>{\color{red}}c
+>{\color{red}}c
+>{\color{red}}c
+>{\color{red}}c
+>{\color{green}}c
+>{\color{green}}c
+>{\color{green}}c
+>{\color{green}}c
+>{\color{green}}c
+>{\color{blue}}c
+>{\color{blue}}c
+>{\color{blue}}c
+>{\color{blue}}c
+>{\color{blue}}c
+@{}}}
+\omega^{ 0}  &  \omega^{ 3}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{12}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{12}  &  \omega^{ 0}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 0}  &  \omega^{ 3}  &  \omega^{ 6}  &  \omega^{ 9}\\
+\omega^{ 0}  &  \omega^{ 3}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{12}  &  \omega^{11}  &  \omega^{14}  &  \omega^{ 2}  &  \omega^{ 5}  &  \omega^{ 8}  &  \omega^{ 7}  &  \omega^{10}  &  \omega^{13}  &  \omega^{ 1}  &  \omega^{ 4}\\
+\omega^{ 0}  &  \omega^{ 6}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 9}  &  \omega^{ 7}  &  \omega^{13}  &  \omega^{ 4}  &  \omega^{10}  &  \omega^{ 1}  &  \omega^{14}  &  \omega^{ 5}  &  \omega^{11}  &  \omega^{ 2}  &  \omega^{ 8}\\
+\omega^{ 0}  &  \omega^{ 6}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 9}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 9}  &  \omega^{ 0}  &  \omega^{ 6}  &  \omega^{ 9}  &  \omega^{ 0}  &  \omega^{ 6}  &  \omega^{12}  &  \omega^{ 3}\\
+\omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 6}  &  \omega^{13}  &  \omega^{ 7}  &  \omega^{ 1}  &  \omega^{10}  &  \omega^{ 4}  &  \omega^{11}  &  \omega^{ 5}  &  \omega^{14}  &  \omega^{ 8}  &  \omega^{ 2}\\
+\omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 6}  &  \omega^{ 3}  &  \omega^{12}  &  \omega^{ 6}  &  \omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 0}  &  \omega^{ 9}  &  \omega^{ 3}  &  \omega^{12}\\
+\omega^{ 0}  &  \omega^{12}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 3}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 3}  &  \omega^{ 0}  &  \omega^{12}  &  \omega^{ 3}  &  \omega^{ 0}  &  \omega^{12}  &  \omega^{ 9}  &  \omega^{ 6}\\
+\omega^{ 0}  &  \omega^{12}  &  \omega^{ 9}  &  \omega^{ 6}  &  \omega^{ 3}  &  \omega^{14}  &  \omega^{11}  &  \omega^{ 8}  &  \omega^{ 5}  &  \omega^{ 2}  &  \omega^{13}  &  \omega^{10}  &  \omega^{ 7}  &  \omega^{ 4}  &  \omega^{ 1}
+\end{array}
+\right]
+\end{equation*}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ETF($8,15$) Picking a Basis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Example:} Each $4$-simplex in $8$-dimensions in the ETF$(8,15)$ is an embedding of the canonical 4-simplex in $4$-dimensions:
+\begin{equation*}
+\color{red}
+\bfPhi_0
+\color{black}
+=
+\color{red}
+\tfrac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+	1 & 0 & 0 & 0\\
+	1 & 0 & 0 & 0\\
+	0 & 1 & 0 & 0\\
+	0 & 1 & 0 & 0\\
+	0 & 0 & 1 & 0\\
+	0 & 0 & 1 & 0\\
+	0 & 0 & 0 & 1\\
+	0 & 0 & 0 & 1
+	\end{array}\right]
+	\color{black}
+	\tfrac{1}{2}\left[\begin{array}{ccccc}
+    1 & \omega^{3} &\omega^{6} &\omega^{9} & \omega^{12}\\
+    1 & \omega^{6} &\omega^{12} &\omega^{3} & \omega^{9}\\
+    1 & \omega^{9} &\omega^{3} &\omega^{12} & \omega^{6}\\
+    1 & \omega^{12} &\omega^{9} &\omega^{6} & \omega^{3}\\
+    \end{array}\right]
+\end{equation*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: ETF($8,15$) Picking a Basis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Example:} Each $4$-simplex in $8$-dimensions in the ETF$(8,15)$ is an embedding of the canonical 4-simplex in $4$-dimensions:
+\begin{equation*}
+\color{green}
+\bfPhi_1
+\color{black}
+=
+\color{green}
+\tfrac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+\omega^6 & 0 & 0 & 0\\
+	\omega^{11} & 0 & 0 & 0\\
+	0 & \omega^7 & 0 & 0\\
+	0 & \omega^{12} & 0 & 0\\
+	0 & 0 & \omega^{13} & 0\\
+	0 & 0 & \omega^{3} & 0\\
+	0 & 0 & 0 & \omega^9\\
+	0 & 0 & 0 & \omega^{14}
+	\end{array}\right]
+	\color{black}
+	\tfrac{1}{2}\left[\begin{array}{ccccc}
+    1 & \omega^{3} &\omega^{6} &\omega^{9} & \omega^{12}\\
+    1 & \omega^{6} &\omega^{12} &\omega^{3} & \omega^{9}\\
+    1 & \omega^{9} &\omega^{3} &\omega^{12} & \omega^{6}\\
+    1 & \omega^{12} &\omega^{9} &\omega^{6} & \omega^{3}\\
+    \end{array}\right]
+\end{equation*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]{Example: ETF($8,15$) Picking a Basis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Example:} Each $4$-simplex in $8$-dimensions in the ETF$(8,15)$ is an embedding of the canonical 4-simplex in $4$-dimensions:
+\begin{equation*}
+\color{blue}
+\bfPhi_2
+\color{black}
+=
+\color{blue}
+\tfrac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+\omega^{12} & 0 & 0 & 0\\
+	\omega^{7} & 0 & 0 & 0\\
+	0 & \omega^{14} & 0 & 0\\
+	0 & \omega^{9} & 0 & 0\\
+	0 & 0 & \omega^{11} & 0\\
+	0 & 0 & \omega^6 & 0\\
+	0 & 0 & 0 & \omega^3\\
+	0 & 0 & 0 & \omega^{13}
+	\end{array}\right]
+	\color{black}
+	\tfrac{1}{2}\left[\begin{array}{ccccc}
+    1 & \omega^{3} &\omega^{6} &\omega^{9} & \omega^{12}\\
+    1 & \omega^{6} &\omega^{12} &\omega^{3} & \omega^{9}\\
+    1 & \omega^{9} &\omega^{3} &\omega^{12} & \omega^{6}\\
+    1 & \omega^{12} &\omega^{9} &\omega^{6} & \omega^{3}\\
+    \end{array}\right]
+\end{equation*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Main Result 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Theorem:} [Fickus \& S 19]\\\smallskip
+
+Let $\calD$ be a fine difference set in an abelian group $\calG$ and define,
+
+\begin{align*}
+	\bfPsi\in\bbC^{(\calG/\calH)\backslash\{\overline{0}\}\times\calH^\perp},&\qquad \bfPsi(\overline{g},\gamma)=\tfrac{1}{\sqrt{S}}\gamma(g)\\
+	\bfPhi_\gamma\in\bbC^{\calD\times\calH^\perp},& \qquad \bfPhi_\gamma(d,\gamma')=\tfrac{1}{\sqrt{D}}(\gamma\gamma')(d)\\
+	\bfE_\gamma\in\bbC^{\calD\times\calG/\calH\setminus\{\overline{0}\}},& \qquad \bfE_\gamma(d,\overline{g}):=\tfrac{\sqrt{S}}{\sqrt{D}}\left\{\begin{array}{cc}
+	\gamma(d), & \overline{d}=\overline{g}, \\
+	0, & \overline{d}\not=\overline{g}.
+	\end{array}\right.
+\end{align*}
+
+Then $\bfE_{\gamma}$ is an isometry $\forall \gamma\in\hat{\calG}$ and $\bfPhi_{\gamma}=\bfE_{\gamma}\bfPsi$.
+In particular if $\bfPhi$ is a harmonic ETF arising from a fine difference set, it is comprised of regular simplices.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[noframenumbering]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Part III:\\
+EITFF Conjecture Revisited}
+\author{}
+\institute{}
+
+\date{}
+\titlegraphic{}
+\maketitle
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Harmonic ETFs Comprised of Simplices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Theorem:}
+[Fickus, Jasper, King \& Mixon 17]\smallskip
+
+If an ETF for $\bbH$ is comprised of regular simplices, then the subspaces of $\bbH$ spanned by those simplices form an ECTFF for $\bbH$.
+
+\vfill 
+
+\textbf{Note:} The proof of this theorem relied on using the projections onto these subspaces instead of an ONB for the subspaces making it hard to compute the singular values.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Main Result 3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Theorem:} [Fickus \& S 19]\\\smallskip
+
+If $\calD$ is a fine difference set in an abelian group $\calG$. Then
+\begin{itemize}
+    \item The cross-Gram matrix $\bfE_{\gamma}^*\bfE_{\gamma'}^{}$ is diagonal.
+    \item The subspaces spanned by the simplices that comprise the ETF$(D,G)$ form an EITFF for $\bbC^\calD$ if and only if $\calD$ is an \textbf{amalgam}, that is $\forall g\in\calG,$ $\calD_g$ is a difference set for $\calH$.
+\end{itemize}
+
+\vfill
+
+\textbf{Note:} These EITFF support the previous conjecture: there are $H$ subspace of $\bbC^{\calD}$ each of dimension $S$ that form an EITFF for $\bbC^{\calD}$ and $S$ divides $D$. Further, there exists an $ETF(\tfrac{D}{S},H)$ namely the harmonic ETF yielded by $\calD_g$ for all $g\not\in\calH.$
+
+\vfill
+
+\textbf{Example:} For $\calD=\{6,11,7,12,13,3,9,14\}$ in $\bbZ_{15}$ $\calD_g=\{5,10\}$ is a difference set for $\calH=\{0,5,10\}$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ETF$(8,15)$ Revisited}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For $\calD=\{6,11,7,12,13,2,9,14\}$ in $\bbZ_{15}$, $\bfE_0$, $\bfE_1$, and $\bfE_2$ are
+
+\begin{footnotesize}
+
+\begin{equation*}
+	\tfrac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+	1 & 0 & 0 & 0\\
+	1 & 0 & 0 & 0\\
+	0 & 1 & 0 & 0\\
+	0 & 1 & 0 & 0\\
+	0 & 0 & 1 & 0\\
+	0 & 0 & 1 & 0\\
+	0 & 0 & 0 & 1\\
+	0 & 0 & 0 & 1
+	\end{array}\right], \ \tfrac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+	\omega^6 & 0 & 0 & 0\\
+	\omega^{11} & 0 & 0 & 0\\
+	0 & \omega^7 & 0 & 0\\
+	0 & \omega^{12} & 0 & 0\\
+	0 & 0 & \omega^{13} & 0\\
+	0 & 0 & \omega^{3} & 0\\
+	0 & 0 & 0 & \omega^9\\
+	0 & 0 & 0 & \omega^{14}
+	\end{array}\right], \ \tfrac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+	\omega^{12} & 0 & 0 & 0\\
+	\omega^{7} & 0 & 0 & 0\\
+	0 & \omega^{14} & 0 & 0\\
+	0 & \omega^{9} & 0 & 0\\
+	0 & 0 & \omega^{11} & 0\\
+	0 & 0 & \omega^6 & 0\\
+	0 & 0 & 0 & \omega^3\\
+	0 & 0 & 0 & \omega^{13}
+	\end{array}\right].
+\end{equation*}
+
+and $\bfE_0^*\bfE_1^{}$, $\bfE_0^*\bfE_2^{}$, and $\bfE_1^*\bfE_2^{}$, respectively, are
+
+\begin{equation*}
+\label{eq: 8x15 cross Grams}
+    -\tfrac{1}{2}\left[\begin{array}{cccc}
+    \omega & 0 & 0 & 0  \\
+    0 & \omega^{2} & 0 & 0  \\
+    0 & 0 & \omega^{8} & 0  \\
+    0 & 0 & 0 & \omega^{4}  \\
+    \end{array}\right], 
+    -\tfrac{1}{2}\left[\begin{array}{cccc}
+    \omega^{2} & 0 & 0 & 0  \\
+    0 & \omega^{4} & 0 & 0  \\
+    0 & 0 & \omega & 0  \\
+    0 & 0 & 0 & \omega^{8}  \\
+    \end{array}\right],
+    -\tfrac{1}{2}\left[\begin{array}{cccc}
+    \omega & 0 & 0 & 0  \\
+    0 & \omega^{2} & 0 & 0  \\
+    0 & 0 & \omega^{8} & 0  \\
+    0 & 0 & 0 & \omega^{4}  \\
+    \end{array}\right].
+\end{equation*}
+
+\end{footnotesize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Main Result 4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Theorem:}
+
+For any prime power $Q$, the complements of certain Singer difference set are amalgams and have parameters 
+\begin{equation*}
+    G=\tfrac{Q^J-1}{Q-1} \qquad D=Q^{J-1}
+\end{equation*}
+for any even integer $J\geq 4$.
+The complements of twin prime power difference sets are amalgams when $Q\equiv 3\mod 4$ and have parameters
+\begin{equation*}
+    G=Q(Q+2) \qquad D=\tfrac{1}{2}(Q+1)^2
+\end{equation*}
+provided $Q+2$ is an odd prime power.
+When $Q\equiv 1\mod 4$ these difference sets are not amalgams.
+McFarland difference sets are never amalgams.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Main Result 5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Definition:} A \textbf{conference matrix}, $\bfA$ is an $N\times N$ matrix whose diagonal entries are 0, off-diagonal entries have modulus 1, and satisfies that $\bfA\bfA^*=(N-1)\bfI$.
+
+\vfill
+
+\textbf{Theorem:}
+Let $\calD$ be a fine difference set in a finite abelian group $\calG$ such that for all $g\in\calG$, $\calD_g$ is a difference set for $\calH$. For any $\gamma\in\hat{\calG}$, $\gamma\not\in\calH^\perp$ define 
+\begin{equation*}
+	\bfx\in\bbC^{\calG/\calH}, \qquad \bfx(\overline{g})=\tfrac{S^{3/2}}{D}\sum_{\substack{d\in\calD\\\overline{d}=\overline{g}}}\gamma(d).
+\end{equation*}
+Then the translates of $\bfx$ are orthogonal and 
+$$\abs{\bfx(\overline{g})}=\left\{\begin{array}{cc}
+0, & \overline{g}=\overline{0},\\
+1, & \overline{g}\not=\overline{0}.
+\end{array}\right.$$
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example: ETF$(8,15)$ Revisited}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For $\calD=\{6,11,7,12,13,3,9,14\}$ in $\bbZ_{15}$,
+
+\begin{equation*}
+    \bfE_0^*\bfE_1^{}=-\tfrac{1}{2}\left[\begin{array}{cccc}
+    \omega & 0 & 0 & 0  \\
+    0 & \omega^{2} & 0 & 0  \\
+    0 & 0 & \omega^{8} & 0  \\
+    0 & 0 & 0 & \omega^{4}  \\
+    \end{array}\right], 
+\end{equation*}
+
+and so the following is a complex circulant conference matrix satisfying $\bfA\bfA^*=4\bfI$:
+
+\begin{equation*}
+\bfA=-\left[
+\begin{array}{ccccc}
+0 & \omega^4 & \omega^8 & \omega^2 & \omega \\		
+\omega & 0 & \omega^4 & \omega^8 & \omega^2 \\
+\omega^2 & \omega & 0 & \omega^4 & \omega^8 \\
+\omega^8 & \omega^2 & \omega & 0 & \omega^4 \\
+\omega^4 & \omega^8 & \omega^2 & \omega & 0
+\end{array}
+\right]
+\end{equation*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Contributions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+    \item A fine difference set yields an EITFF if an only if it is an amalgam.
+    
+    \item Every amalgam yields a circulant conference matrix.
+    
+    \item There exists infinite family of fine difference sets that are amalgams and infinite families of fine difference sets that are not amalgams.
+    
+    \item Journal article.
+    
+    \item Conference proceeding for SampTA 2019.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    Thank you! Questions?
+\end{center}
+
+\end{frame}
+
+\end{document}
